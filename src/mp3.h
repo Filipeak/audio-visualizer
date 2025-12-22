@@ -3,6 +3,6 @@
 
 #include <stddef.h>
 
-void process_mp3(const char *input_path, float **mono_signal, size_t *mono_samples, int* hz);
+int process_mp3(const char *input_path, float **mono_signal, size_t *mono_samples, int* hz);
 
 #endif

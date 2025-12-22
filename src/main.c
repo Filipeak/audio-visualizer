@@ -10,7 +10,7 @@ static size_t mono_samples = 0;
 static float windowed_buffer[FFT_SIZE];
 static size_t current_position = 0;
 
-static float* run_next_fft()
+static float *run_next_fft()
 {
     if (current_position + FFT_SIZE < mono_samples)
     {
@@ -38,7 +38,10 @@ int main(int argc, char *argv[])
     printf("Input path: %s\n", input_path);
 
     int hz = 0;
-    process_mp3(input_path, &mono_signal, &mono_samples, &hz);
+    if (process_mp3(input_path, &mono_signal, &mono_samples, &hz) != 0)
+    {
+        return 1;
+    }
 
     visualization_init(hz, mono_signal, mono_samples);
     visualization_run(run_next_fft);

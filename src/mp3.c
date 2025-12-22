@@ -27,7 +27,7 @@ static void _convert_to_mono(const float *stereo_buffer, size_t stereo_samples, 
     printf("Converted to mono signal with %zu samples.\n", *mono_samples);
 }
 
-void process_mp3(const char *input_path, float **mono_signal, size_t *mono_samples, int* hz)
+int process_mp3(const char *input_path, float **mono_signal, size_t *mono_samples, int* hz)
 {
     mp3dec_t mp3d;
     mp3dec_file_info_t info;
@@ -38,7 +38,7 @@ void process_mp3(const char *input_path, float **mono_signal, size_t *mono_sampl
     {
         printf("Error loading mp3 file: %s\n", input_path);
 
-        return;
+        return 1;
     }
 
     printf("Decoded %zu samples, %d channels, %d Hz, layer %d, avg bitrate %d kbps\n", info.samples, info.channels, info.hz, info.layer, info.avg_bitrate_kbps);
@@ -48,4 +48,6 @@ void process_mp3(const char *input_path, float **mono_signal, size_t *mono_sampl
     _convert_to_mono(info.buffer, info.samples, mono_signal, mono_samples, info.channels);
 
     free(info.buffer);
+
+    return 0;
 }

@@ -24,6 +24,6 @@ Run the executable: ```./audio-visualizer <mp3 file path>```
 ![](https://github.com/Filipeak/audio-visualizer/blob/main/assets/preview.png)
 
 
-## Next Steps
+## TODO
 - Optimize FFT (iterative version)
-- Smoothen fft plots between frames
+- Smoothen fft plots between frames / interpolate (+sync)
