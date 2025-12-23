@@ -21,8 +21,4 @@ Run the executable: ```./audio-visualizer <mp3 file path>```
 
 
 ## Preview
-![](https://github.com/Filipeak/audio-visualizer/blob/main/assets/preview.png)
-
-
-## TODO
-- Optimize FFT (iterative version)
+![](https://github.com/Filipeak/audio-visualizer/blob/main/assets/preview.gif)
