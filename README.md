@@ -26,4 +26,3 @@ Run the executable: ```./audio-visualizer <mp3 file path>```
 
 ## TODO
 - Optimize FFT (iterative version)
-- Smoothen fft plots between frames / interpolate (+sync)
